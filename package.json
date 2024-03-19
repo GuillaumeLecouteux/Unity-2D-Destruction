@@ -1,6 +1,6 @@
 {
   "name": "com.jauntybear.destruction2d",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Unity 2D Destruction",
   "description": "A package for 2D Destruction (forked from mjholtzem)",
   "unity": "2022.3",
