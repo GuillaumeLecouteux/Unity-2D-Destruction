@@ -140,7 +140,7 @@ public class Explodable : MonoBehaviour
                 fragments[i].layer = LayerMask.NameToLayer(fragmentLayer);
                 fragments[i].GetComponent<Renderer>().sortingLayerName = sortingLayerName;
                 fragments[i].GetComponent<Renderer>().sortingOrder = orderInLayer;
-
+#if UNITY_EDITOR
                 /// prefab mesh save        
                 if (meshSaved)
                 {
@@ -152,10 +152,13 @@ public class Explodable : MonoBehaviour
                     var mesh = fragments[i].GetComponent<MeshFilter>().sharedMesh;
                     AssetDatabase.CreateAsset(mesh, "Assets/Mesh/" + transform.name + "_" + i + ".asset");
                 }
+#endif
             }
         }
 
+#if UNITY_EDITOR
         AssetDatabase.SaveAssets();
+#endif
 
         foreach (ExplodableAddon addon in GetComponents<ExplodableAddon>())
         {
